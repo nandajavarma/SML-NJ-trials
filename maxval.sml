@@ -2,19 +2,19 @@ fun countdown(x: int, y: int) =
   if x = y
     then y::[]
   else
-    x:: count(x-1, y)
+    x:: countdown(x-1, y)
 
 fun countup(x: int, y: int) =
   if x = y
     then y::[]
   else
-    x:: count(x+1, y)
+    x:: countdown(x+1, y)
 
 fun max_of_nums(x: int list) =
   if null x
-    then 0
+  then 0
   else if null (tl x)
-    hd x
+  then  hd x
   else
     let
       val tail_val = max_of_nums(tl x)
