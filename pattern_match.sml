@@ -12,3 +12,31 @@ fun unzip tuple_list =
                       in
                          (a::l1,b::l2,c::l3)
                      end
+                     
+fun nondecreasing xs =
+  case xs of
+       [] => true
+     | x::[] => true
+     | head::(neck::rest) => if head >= neck andalso nondecreasing (neck::rest)
+                             then true
+                             else false
+
+
+datatype sgn = P | N | Z
+
+fun multisign (x1, x2) =
+  let fun sign x = if x = 0 then Z else if x > 0 then P else N
+  in
+    case (sign x1, sign x2) of
+         (_,Z) => Z
+       | (Z, _) => Z
+       | (P, P) => P
+       | (N, N) => P
+       | _ => N
+  end
+
+
+fun len xs =
+  case xs of
+       [] => 0
+     | _::xs' => 1 + len xs'
