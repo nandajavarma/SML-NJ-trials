@@ -13,4 +13,5 @@ fun filter(f, x) =
                then a::filter(f, b)
                else filter(f, b)
 
-val x2 = filter(fn x => (x mod 2 = 0), [2,3,4,5,6,7,8])
+vcal x2 = filter(fn x => (x mod 2 = 0), [2,3,4,5,6,7,8])
+p
